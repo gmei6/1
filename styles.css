@@ -1,0 +1,328 @@
+﻿/*
+    styles.css
+    This stylesheet provides all the visual styling for the XML-to-Excel web tool,
+    following First Citizens Bank's brand guidelines for a professional, clean, and intuitive interface.
+*/
+
+/* --- Color Palette Variables --- */
+:root {
+    --fcb-oxford-blue: #00224F; /* Primary Dark Blue */
+    --fcb-spanish-blue: #006DBA; /* Brighter Medium Blue - Primary action/accent */
+    --fcb-alizarin-crimson: #E12240; /* Red - For errors/emphasis */
+    --fcb-light-gray: #F5F5F5; /* Light background for sections/rows */
+    --fcb-border-gray: #D0D0D0; /* Subtle border color */
+    --fcb-text-dark: #333333; /* General dark text */
+    --fcb-text-light: #FFFFFF; /* White text for dark backgrounds */
+}
+
+/* --- Base Styles --- */
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--fcb-light-gray); /* Light background */
+    color: var(--fcb-text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer sticks to bottom on short content */
+}
+
+.container {
+    max-width: 1000px; /* Max width for content */
+    margin: 40px auto; /* Centered with vertical spacing */
+    padding: 20px;
+    background-color: var(--fcb-text-light); /* White background for the main content area */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+    flex-grow: 1; /* Allows container to take up available space */
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    background-color: var(--fcb-text-light); /* Changed to white */
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Logo on left, Nav on right */
+    align-items: center;
+    padding: 0 20px; /* Horizontal padding */
+}
+
+/* START: Styles for separate logo images */
+/* Remove the hidden original .bank-logo if it existed, as it's no longer needed */
+.bank-logo {
+    display: inline-block;
+    width: 20%; /* Shrinks the image to 50% of its original width */
+    height: auto; /* Maintains the aspect ratio */
+}
+
+
+.main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox for horizontal navigation */
+    align-items: center;
+    flex-grow: 1; /* Allows navigation to take up available space */
+    justify-content: flex-end; /* Pushes the main nav items to the right */
+}
+
+.main-nav li {
+    margin-left: 25px; /* Spacing between nav items */
+}
+
+.main-nav .nav-right {
+    margin-left: 50px; /* Increased margin to separate 'About' from other links */
+}
+
+.main-nav .nav-link {
+    display: block;
+    color: var(--fcb-oxford-blue); /* Changed to dark blue for visibility on white background */
+    text-decoration: none;
+    font-weight: 600; /* Slightly bolder text */
+    padding: 5px 0; /* Padding for click area */
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent; /* Transparent border for hover effect */
+}
+
+.main-nav .nav-link:hover {
+    color: var(--fcb-spanish-blue); /* Spanish Blue on hover */
+    border-bottom-color: var(--fcb-spanish-blue); /* Underline effect */
+}
+
+.main-nav .nav-link.active {
+    color: var(--fcb-spanish-blue); /* Active link in Spanish Blue */
+    border-bottom-color: var(--fcb-spanish-blue);
+}
+
+
+/* --- Main Tool Section --- */
+.tool-section {
+    padding: 20px 0;
+    text-align: center; /* Center content within the section */
+}
+
+.section-title {
+    color: var(--fcb-oxford-blue);
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.section-description {
+    font-size: 1.1em;
+    color: var(--fcb-text-dark);
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Upload Area --- */
+.upload-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Space between choose files and process button */
+    margin-bottom: 20px;
+}
+
+.custom-file-upload {
+    border: 2px solid var(--fcb-spanish-blue);
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--fcb-text-light);
+    color: var(--fcb-spanish-blue);
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.custom-file-upload:hover {
+    background-color: var(--fcb-spanish-blue);
+    color: var(--fcb-text-light);
+}
+
+.custom-file-upload input[type="file"] {
+    display: none; /* Hide default file input */
+}
+
+.selected-files-info {
+    font-size: 0.95em;
+    color: var(--fcb-text-dark);
+    margin-top: -10px; /* Pull it slightly closer to the upload area */
+    margin-bottom: 30px;
+    min-height: 20px; /* Reserve space to prevent layout shift */
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-btn {
+    background-color: var(--fcb-spanish-blue);
+    color: var(--fcb-text-light);
+    box-shadow: 0 2px 5px rgba(0, 109, 186, 0.3); /* Subtle shadow for primary button */
+}
+
+.primary-btn:hover:not(:disabled) {
+    background-color: #004D8C; /* Darker Spanish Blue on hover */
+    box-shadow: 0 4px 10px rgba(0, 109, 186, 0.4);
+}
+
+.secondary-btn {
+    background-color: var(--fcb-text-light);
+    color: var(--fcb-oxford-blue);
+    border: 1px solid var(--fcb-oxford-blue);
+}
+
+.secondary-btn:hover:not(:disabled) {
+    background-color: var(--fcb-oxford-blue);
+    color: var(--fcb-text-light);
+}
+
+.btn:disabled {
+    background-color: #CCCCCC;
+    color: #888888;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.copy-button-container {
+    margin-top: 30px; /* Space above copy button */
+    text-align: center;
+}
+
+/* --- Table Styles --- */
+.excel-table-container {
+    margin-top: 30px;
+    max-width: 100%;
+    overflow-x: auto; /* Allows horizontal scrolling for wide tables */
+    border: 1px solid var(--fcb-border-gray); /* Subtle border around the table area */
+    border-radius: 5px;
+    /* --- NEW STYLES FOR LARGER TABLE AREA --- */
+    height: calc(100vh - 350px); /* Adjust 350px based on your header/footer/other content height */
+    overflow-y: auto; /* Enable vertical scrolling within the table container */
+    margin-left: auto; /* Center the container horizontally */
+    margin-right: auto; /* Center the container horizontally */
+    text-align: left; /* Ensure table content aligns left within its container */
+}
+
+.excel-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--fcb-text-light);
+}
+
+.excel-table-container th, .excel-table-container td {
+    border: 1px solid var(--fcb-border-gray);
+    padding: 12px 15px; /* More padding for better readability */
+    text-align: left;
+    font-size: 0.95em;
+    white-space: nowrap; /* Prevent text wrapping in cells if desired, or remove */
+}
+
+.excel-table-container th {
+    background-color: var(--fcb-oxford-blue); /* Dark blue header for table */
+    color: var(--fcb-text-light);
+    font-weight: 600;
+    position: sticky; /* Makes header row sticky */
+    top: 0; /* Sticks to the top of the scrollable container */
+    z-index: 1; /* Ensures it stays above scrolling content */
+}
+
+.excel-table-container tr:nth-child(even) {
+    background-color: var(--fcb-light-gray); /* Alternate row background */
+}
+
+.excel-table-container tr:hover {
+    background-color: #E6F2F9; /* Very light blue on row hover */
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--fcb-oxford-blue);
+    color: var(--fcb-text-light);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px; /* Space above footer */
+    font-size: 0.9em;
+}
+
+.main-footer p {
+    margin: 0;
+}
+
+/* --- Utility Classes (adjust as needed) --- */
+.text-danger {
+    color: var(--fcb-alizarin-crimson); /* For error messages */
+    font-weight: 600;
+}
+
+/* --- New Styles for Report Output --- */
+.report-section {
+    margin-bottom: 40px; /* Space between different report tables */
+    padding-top: 20px;
+    border-top: 1px solid var(--fcb-border-gray);
+}
+
+.report-section h2 {
+    color: var(--fcb-spanish-blue); /* Color for overall report title */
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.report-section h3 {
+    color: var(--fcb-oxford-blue); /* Color for group titles (e.g., Group: C) */
+    font-size: 1.4em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+    padding-left: 10px; /* Align with table content */
+}
+
+/* Ensure the excel-table-container styles are applied */
+.excel-table { /* Apply this to the dynamically created tables */
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--fcb-text-light);
+    margin-bottom: 20px; /* Space below each table */
+}
+
+/* In styles.css */
+
+.excel-table-container th,
+.excel-table-container td {
+    border: 1px solid var(--fcb-border-gray);
+    padding: 12px 15px; /* More padding for better readability */
+    text-align: left;
+    font-size: 0.95em;
+    /* Add these two lines to preserve spacing and use a monospaced font */
+    white-space: pre; /* This is the key: preserves all whitespace and does not wrap */
+    font-family: 'Courier New', Courier, monospace; /* Use a common monospaced font */
+}
+
+/* You might already have this part for the header, just ensure it doesn't override the td rules */
+.excel-table-container th {
+    background-color: var(--fcb-oxford-blue); /* Dark blue header for table */
+    color: var(--fcb-text-light);
+    font-weight: 600;
+    position: sticky; /* Makes header row sticky */
+    top: 0; /* Sticks to the top of the scrollable container */
+    z-index: 1; /* Ensures it stays above scrolling content */
+}

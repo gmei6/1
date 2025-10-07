@@ -1,0 +1,86 @@
+﻿﻿﻿
+<!--
+    custom-format.html
+    This page will house custom formatting options.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Commission & Volume Report">
+    <meta name="author" content="Gary Mei">
+    <title>Commission & Volume Report</title>
+
+    <!-- Link to the main stylesheet for page styling -->
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <img src="https://www.firstcitizens.com/content/dam/firstcitizens/images/logos/fcb-logo-horiz-web-2020@2x.png.transform/original/image.20230612.png" alt="First Citizens Bank Logo" class="bank-logo" />
+            <nav class="main-nav">
+                <ul>
+                    <li><a class="nav-link" href="index.html">XML Converter</a></li>
+                    <li><a class="nav-link active" href="monthlyReport.html">Commission & Volume Report</a></li>
+                    <li><a class="nav-link" href="custom-format.html">Custom Format</a></li>
+                    <li><a class="nav-link" href="option3.html">Option 3</a></li>
+                    <li><a class="nav-link" href="option4.html">Option 4</a></li>
+                    <li class="nav-right"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="tool-section">
+            <h1 class="section-title">Commission & Volume Report</h1>
+            <p class="section-description">Upload your text files below for custom processing.</p>
+
+            <div class="upload-area">
+                <label for="volumeInput" class="custom-file-upload">
+                    <span id="fileInputLabel1">Choose Volume File</span>
+                    <input type="file" id="volumeInput" accept=".txt">
+                </label>
+
+                <label for="commissionInput" class="custom-file-upload">
+                    <span id="fileInputLabel2">Choose Commission File</span>
+                    <input type="file" id="commissionInput" accept=".txt">
+                </label>
+            </div>
+
+            <button id="processButton" class="btn primary-btn" disabled>Process Files</button>
+        </section>
+
+        <!-- This section will hold the side-by-side report tables -->
+        <section id="reportOutput" class="report-output-container"></section>
+
+        <!-- This section will hold the copy buttons for the tables -->
+        <section id="copyButtonContainer" class="copy-button-container" style="display: none;">
+            <div class="copy-button-wrapper">
+                <button id="copyVolumeButton" class="btn secondary-btn" disabled>Copy Volume</button>
+            </div>
+            <div class="copy-button-wrapper">
+                <button id="copyCommissionButton" class="btn secondary-btn" disabled>Copy Commission</button>
+            </div>
+        </section>
+
+        <section id="reportLinksContainer" class="report-links-container" style="display: none;">
+            <a id="volumeTablesLink" class="btn secondary-btn" href="#" target="_blank" rel="noopener">Volume Tables</a>
+            <a id="commissionTablesLink" class="btn secondary-btn" href="#" target="_blank" rel="noopener">Commission Tables</a>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 First Citizens Bank. All Rights Reserved.</p>
+    </footer>
+
+    <script src="scriptMonthlyReport.js"></script>
+
+
+</body>
+</html>
